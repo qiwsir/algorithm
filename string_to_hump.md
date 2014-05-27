@@ -33,16 +33,22 @@
 
 ```racket
 #lang racket
-(let* 
-    [(train-str "border-bottom-color")
-     (splited-str (regexp-split "-" train-str))]
-  (string-append
-   (first splited-str)
-   (apply
-    string-append
-    (map
-     string-titlecase
-     (rest splited-str)))))
+
+; 定义字符串转换函数 train-to-camel
+(define (train-to-camel train-str separator-char)
+  (let
+    [(splited-str (regexp-split separator-char train-str))]      ; 把原始字符串用 '-' 分成多个单独的单词
+    (string-append
+      (first splited-str)
+      (apply
+        string-append
+        (map
+          string-titlecase
+          (rest splited-str))))))
+
+; 调用字符串转换函数 train-to-camel
+(train-to-camel "this-is-a-var" "-")  ; 正常运行的情况下, 应输出 "thisIsAVar"
+
 ```
 
 --------------
