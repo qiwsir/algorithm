@@ -29,6 +29,22 @@
 
 ##欢迎补充其它语言的解决方法
 
+###racket解决方法 (racket 5.2.1)
+
+```racket
+#lang racket
+(let* 
+    [(train-str "border-bottom-color")
+     (splited-str (regexp-split "-" train-str))]
+  (string-append
+   (first splited-str)
+   (apply
+    string-append
+    (map
+     string-titlecase
+     (rest splited-str)))))
+```
+
 --------------
 
 ###联系我：老齐 qiwsir#gmail.com (# to @)
