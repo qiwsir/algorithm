@@ -12,7 +12,7 @@
 
 特别注意，在字符串中可能会出现数量并列第一的字符，因此要通过循环找出最大数之后，再通过循环找出最大数对应的字母（键）。
 
-#解答
+#解答1
 
     import collections
 
@@ -30,4 +30,24 @@
         for char in most_char:
             print char
 
+#解答2
+
+    str1 = "sdsdsddssssssssdd"
+    
+    def most_character_number(one_string):
+    """利用字典key来统计次数"""
+        str_dict = {}
+        for item in one_string:
+            if item in str_dict:
+                str_dict[item] +=1
+            else:
+                str_dict[item] =1
+
+        
+        str_dict = {str_dict[key]:key for key in str_dict}
+        return (max(str_dict),str_dict[max(str_dict)])
+
+    print (most_character_number(str1))
+
+解答2由黄老师提供，[他的微博](http://weibo.com/qiyeminglu)。
 
