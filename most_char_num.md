@@ -35,7 +35,7 @@
     str1 = "sdsdsddssssssssdd"
     
     def most_character_number(one_string):
-    """利用字典key来统计次数"""
+        """利用字典key来统计次数"""
         str_dict = {}
         for item in one_string:
             if item in str_dict:
