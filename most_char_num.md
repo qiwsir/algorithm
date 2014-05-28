@@ -12,7 +12,7 @@
 
 特别注意，在字符串中可能会出现数量并列第一的字符，因此要通过循环找出最大数之后，再通过循环找出最大数对应的字母（键）。
 
-#解答1
+#解答1(python)
 
     import collections
 
@@ -30,7 +30,7 @@
         for char in most_char:
             print char
 
-#解答2
+#解答2(python)
 
     str1 = "sdsdsddssssssssdd"
     
@@ -51,3 +51,8 @@
 
 解答2由黄老师提供，[他的微博](http://weibo.com/qiyeminglu)。
 
+##欢迎接龙，可以按照上面格式继续。
+
+------
+
+##联系老齐：qiwsir#gmail.com
