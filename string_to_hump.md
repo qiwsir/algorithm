@@ -53,4 +53,16 @@
 
 --------------
 
+### Ruby 解决方法
+
+```ruby
+str.split('-').map{|x| x.capitalize}.join
+```
+
+```ruby
+str = 'border-bottom-color'
+str.split('-').map{|x| x.capitalize}.join
+# => "BorderBottomColor"
+```
+
 ###联系我：老齐 qiwsir#gmail.com (# to @)
