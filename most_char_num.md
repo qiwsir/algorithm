@@ -55,4 +55,54 @@
 
 ------
 
+#解答3 (racket 5.2.1)
+
+```racket
+#lang racket
+
+; 需要引用 scheme 标准库中的 list 库 (SRFI-1)
+(require srfi/1)
+
+; 定义函数 get-key-by-value
+; 输入一个 Hash 表和一个 a-value (用于反向查找 key 的 value)
+; 输出 value 等于 a-value 的那些 key,
+; 换言之, 此 key 满足条件 (hash-ref key) == a-value.
+(define (get-key-by-value a-hash a-value)
+  (hash-for-each a-hash
+    (lambda (k v)
+      (if (= a-value (hash-ref a-hash k))
+        (printf "~a: ~a~n" k v) '()))))
+
+; 定义函数 char-cmp
+; 输入一个 preset-char (预设字符)
+; 返回一个的匿名函数 (其内部包含 preset-char)
+; > 其输入为 char-to-be-compared (待比较的字符)
+; > 当 char-to-be-compared 与 preset-char 
+; > 相等时输出 true, 否则输出 false
+(define (char-cmp preset-char)
+  (lambda (char-to-be-compared)
+    (if (char=? preset-char char-to-be-compared) true false)))
+
+; 定义函数 most-character-number
+; 输入一个 a-string 任意字符串
+; 输出 a-string 中出现次数最多的字符, 及其出现次数
+(define (most-character-number a-string)
+  (let*
+    ([all-chars-list (string->list a-string)]
+     [key-chars-list (delete-duplicates all-chars-list)]
+     [result-hash (make-hash)])
+    (for ([key-char key-chars-list])
+      (hash-set! result-hash
+        key-char (count (char-cmp key-char) all-chars-list)))
+      (get-key-by-value 
+        result-hash 
+        (apply max (hash-values result-hash)))))
+
+; 以下函数调用在正常运行之后, 应该显示
+; f: 3
+; d: 3
+; a: 3
+(most-character-number "ssfdaa dffda ")
+```
+
 ##联系老齐：qiwsir#gmail.com
