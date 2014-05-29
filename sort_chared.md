@@ -40,4 +40,38 @@
         print "\nthe result is:"
         print sort_by_list(by_string,word)
     
+# 解法 （racket 5.2.1)
 
+**对语言的掌握还不熟练，所以暂未考虑算法效率**
+
+```racket
+#lang racket
+
+; 定义一个函数 filter-by-1st-char
+; 输入一个字符 a-ch 和一个字符串 a-str
+; 如果 a-ch 与 a-str 的第一个字符相同，
+; 则以列表方式输出 a-str, 否则输出空列表 '() 
+(define (filter-by-1st-char a-ch a-str)
+  (if (char=? a-ch (string-ref a-str 0))
+    (list a-word) '()))
+
+; 定义一个函数 sort-words-by-char-list
+; 它接受以字符串形式输入的一个字符序列 char-list, 
+; 和以字符串列表形式输入的一个字符串序列 word-list
+; 输出一个列表，其所有列表项即 word-list 中的所有字符串
+; 并且将根据每个字符串的首字母，依照 char-list 所提供的顺序排序
+; 而并非按一般英文词典的 a-z 顺序排序
+(define (sort-words-by-char-list char-list word-list)
+  (let 
+    ([sorted-word-list '()]) ; 定义一个空列表用于存储排序后的 word
+    (for ([ch char-list])
+      (for ([wd word-list])
+        (set! sorted-word-list 
+          (append sorted-word-list ; 把符合条件的单词放进结果列表
+            (filter-by-1st-char ch wd)))))
+    sorted-word-list))
+
+; 函数调用，正常运行时，应该输出 (dear dog eye bed)
+(displayln
+  (sort-words-by-char-list "dgecfboa" '("dear" "dog" "eye" "bed")))
+```
