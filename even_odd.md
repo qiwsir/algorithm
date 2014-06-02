@@ -18,6 +18,15 @@
 
 ##本问题由黄老师提供并解决，[他的微博](http://weibo.com/qiyeminglu?from=feed&loc=nickname)
 
+#解决（python)
+
+    def odd(x):return x%2==1    #判断是否为奇数，是则返回true
+    def even(x):return x%2==0   
+
+    if __name__=="__main__":
+        test_lst = [7,9,12,5,4,9,8,3,12,89]
+        print filter(even,test_lst)+filter(odd,test_lst)    #利用filter函数
+
 #解决 (racket 5.2.1)
 
 ```racket
