@@ -39,3 +39,36 @@
         print "min number is:",min_num
         print "the sum of all int in the list:",sum_num
         print "the average of the sum:",ave_num
+
+# 另一个解法 (racket 5.2.1)
+
+```racket
+#lang racket
+
+; 定义一个函数 operate-int-list
+; 它接受一个正整数输入 n
+; 它的输出是一个列表
+; 列表的第一项是一个长度为 n 的列表, 此列表的每个元素都是一个 1~100 之间的伪随机数
+; 列表的第二、三、四、五项分别为
+; 所有伪随机数中的最大者
+; 所有伪随机数中的最小者
+; 所有伪随机数的总和
+; 所有伪随机数中平均值，以有理数形式表示
+(define (operate-int-list n)
+  (if (<= n 0)
+      false
+      (let* 
+          ([rand1to100 (lambda () (+ 1 (random 100)))]
+           [random-list (for/list ([i n]) (rand1to100))]
+           [max-int (apply max random-list)]
+           [min-int (apply min random-list)]
+           [sum (apply + random-list)]
+           [average (/ (apply + random-list) (length random-list))])
+        (list random-list
+              max-int min-int sum average))))
+
+; 函数调用，当程序运行正常时，运算结果在形式上类似于以下结果，
+; 但每次的结果列表都有一定的随机性
+; '((19 77 15 49 39 84 45 72 75 100) 100 15 575 57½)
+(operate-int-list 10)
+```
