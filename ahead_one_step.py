@@ -10,10 +10,7 @@
 """
 
 def ahead_one():
-    a = []
-    for i in range(10):
-        a.append(i)
-
+    a = [i for i in range(10)]
     b = a.pop(0)
     a.append(b)
     return a
