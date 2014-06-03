@@ -40,7 +40,7 @@
         print "the sum of all int in the list:",sum_num
         print "the average of the sum:",ave_num
 
-# 另一个解法 (racket 5.2.1)
+# 解法 (racket 5.2.1)
 
 ```racket
 #lang racket
