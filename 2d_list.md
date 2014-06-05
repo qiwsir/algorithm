@@ -40,15 +40,15 @@
 	        print "score of every one in %s:"%course_list[i]
 	        print score_list[i]
 	
-    every_score,every_total,ave_one_course = score(score_list,course_list,student_num)
-    print "\n"
-    print "NEXT IS EVERY ONE SCORE IN EVERY COURSE:"
-    for name in course_list:
-        print name,
-    print "\t"
-    print every_score
-    print "\n"
-    print "every one all score:\t",every_total
-    print "every course of average score:\t",ave_one_course
+	    every_score,every_total,ave_one_course = score(score_list,course_list,student_num)
+	    print "\n"
+	    print "NEXT IS EVERY ONE SCORE IN EVERY COURSE:"
+	    for name in course_list:
+	        print name,
+	    print "\t"
+	    print every_score
+	    print "\n"
+	    print "every one all score:\t",every_total
+	    print "every course of average score:\t",ave_one_course
 
 ##qiwsir#gmail.com (# to @)
