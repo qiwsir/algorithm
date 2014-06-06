@@ -16,4 +16,37 @@
         print a_remainder
         print b
 
+#解决 (racket 5.2.1)
 
+```racket
+#lang racket
+
+; 定义函数 equal-to-k
+; 它接受一个整数输入 k
+; 它输出一个只返回 true/false 的匿名函数
+; 当 k = 1 时, equal-to-k 的功能可以这样理解
+; (equal-to-k 1) => true
+; (equal-to-k 2) => false
+(define (filter-by-k k) 
+  (lambda (n) (if (= k n) true false)))
+
+; 定义函数 random-list-100-remainder-stats
+; 它不接受任何输入
+; 它输出一个整数型列表 b, 其每个元素的定义如下
+; > 给定一个整数型列表 a,包含 100 个元素,保存 100 个随机的 4 位数。
+; > 整数型列表 b，包含 10 个元素。
+; > 统计a列表中的元素对10求余等于0的个数，保存到b[0]中；
+; > 对10求余等于1的个数，保存到b[1]中，……依此类推。
+(define (random-list-100-remainder-stats)
+  (let*
+      ([rand-e4 (lambda () (+ 1000 (random 9000)))]
+       [rand-list-100 (for/list ([i 100]) (rand-e4))]
+       [get-remainder-by-10 (lambda (n) (modulo n 10))]
+       [remainder-list-100 (map get-remainder-by-10 rand-list-100)]
+       [rem-list-sorted (for/list ([k (in-range 0 10)]) (count (filter-by-k k) remainder-list-100))])
+    (displayln rem-list-sorted)))
+
+; 函数调用, 正常执行时, 应输出一个整数的列表
+; 此列表类似于 '(7 11 13 10 5 11 6 11 12 14)
+(random-list-100-remainder-stats)
+```
