@@ -39,14 +39,16 @@
 ; > 对10求余等于1的个数，保存到b[1]中，……依此类推。
 (define (random-list-100-remainder-stats)
   (let*
-      ([rand-e4 (lambda () (+ 1000 (random 9000)))]
-       [rand-list-100 (for/list ([i 100]) (rand-e4))]
-       [get-remainder-by-10 (lambda (n) (modulo n 10))]
-       [remainder-list-100 (map get-remainder-by-10 rand-list-100)]
-       [rem-list-sorted (for/list ([k (in-range 0 10)]) (count (filter-by-k k) remainder-list-100))])
-    (displayln rem-list-sorted)))
+      ([rand-e4 (lambda () (+ 1000 (random 9000)))]     ; 定义 1000~9999 之间的随机数"生成器"
+       [rand-list-100 (for/list ([i 100]) (rand-e4))]   ; 生成长度为 100 的列表, 其中每个元素都是 1000~9999 之间的随机数
+       [get-remainder-by-10 (lambda (n) (modulo n 10))] ; 定义对某整数除以 10 取余数的"生成器"
+       [remainder-list-100 (map get-remainder-by-10 rand-list-100)] ; 对前面长为 100 的列表批量除以 10 取余数
+       ; 最后, 对余数做统计, 生成 b 列表
+       [remainder-list-stats (for/list ([k (in-range 0 10)]) (count (filter-by-k k) remainder-list-100))])
+    ; 把生成的 b 列表输出出来
+    remainder-list-stats))
 
 ; 函数调用, 正常执行时, 应输出一个整数的列表
-; 此列表类似于 '(7 11 13 10 5 11 6 11 12 14)
+; 此列表的展现形式类似于 '(7 11 13 10 5 11 6 11 12 14)
 (random-list-100-remainder-stats)
 ```
