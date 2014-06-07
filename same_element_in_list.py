@@ -17,6 +17,15 @@ def no_repeat_element(element_number):      #element_number是count_element(one_
     no_repeat_list = [key for key in element_number]
     return no_repeat_list
 
+"""
+另外一种删除重复元素方法
+
+list_a = [1,1,2,2,2,3,3,3,3,3,]
+list_b = list(set(list_a))
+
+"""
+
+
 if __name__=="__main__":
 
     ls = ["a","a","b","b",'b','c','c']
@@ -24,3 +33,6 @@ if __name__=="__main__":
     print el_num
     no_repeat = no_repeat_element(el_num)
     print no_repeat
+    print "another way is:"
+    no_repeat2 = list(set(ls))
+    print no_repeat2

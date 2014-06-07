@@ -35,4 +35,11 @@
 	    no_repeat = no_repeat_element(el_num)
 	    print no_repeat
 
+#解决（python）
+
+无重复元素个数统计，只有新数组输出
+
+    list_a = [1,1,2,2,2,3,3,3,3,3,]
+    list_b = list(set(list_a))
+
 ##qiwsir#gmail.com (# to @)
