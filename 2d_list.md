@@ -52,3 +52,53 @@
 	    print "every course of average score:\t",ave_one_course
 
 ##qiwsir#gmail.com (# to @)
+
+#解法 (racket 5.2.1)
+
+```racket
+#lang racket
+
+(define (2d-list)
+  (let*
+    ([rand-100 (lambda () (random 101))]
+     [nth-picker (lambda (n) (lambda (l) (list-ref l n)))]
+     [average (lambda (number-list) (exact->inexact (/ (apply + number-list) (length number-list))))]
+     [course-list (list "coreC++" "coreJava" "Servlet" "JSP" "EJB")]
+     [score-list (for/list ([i 20]) (for/list ([j 5]) (rand-100)))]
+     [score-by-course-list (for/list ([i 5]) (list ((nth-picker i) course-list) (map (nth-picker i) score-list)))]
+     [score-by-student-list (for/list ([i 20]) (list-ref score-list i))]
+     [total-by-student-list (for/list ([i 20]) (apply + (list-ref score-list i)))]
+     [average-by-course-list (for/list ([i 5]) (list ((nth-picker i) course-list) (average (map (nth-picker i) score-list))))])
+    (for ([i 5]) 
+      (display "score of every one in ")
+      (displayln (first ((nth-picker i) score-by-course-list)))
+      (displayln (second ((nth-picker i) score-by-course-list))))
+    (displayln "")
+    (displayln "NEXT IS EVERY ONE SCORE IN EVERY COURSE: ")
+    (displayln course-list)
+    (for ([i 10]) 
+      (displayln (list-ref score-by-student-list i)))
+    (displayln "")
+    (displayln "every one all score: ")
+    (displayln total-by-student-list)
+    (displayln "")
+    (displayln "every course of average score: ")
+    (displayln average-by-course-list)))
+
+; 调用函数, 正常时应输出类似如下结果
+;score of every one in coreC++
+;(12 58 60 28 78 23 34 83 19 83 78 26 51 94 93 74 53 89 8 23)
+;... ...
+;NEXT IS EVERY ONE SCORE IN EVERY COURSE: 
+;(coreC++ coreJava Servlet JSP EJB)
+;(12 49 75 88 68)
+;(58 78 6 88 81)
+;... ...
+;every one all score: 
+;(292 311 370 241 289 250 254 258 147 232 271 170 224 248 317 286 246 270 186 212)
+;
+;every course of average score: 
+;((coreC++ 53.35) (coreJava 53.9) (Servlet 51.95) (JSP 49.6) (EJB 44.9))
+(2d-list)
+
+```
