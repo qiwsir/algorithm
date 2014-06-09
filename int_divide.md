@@ -17,14 +17,14 @@
 	def int_divided(m,r,out_list):
 	    if(r==0):
 	        return True 
-	    m1=r
-	    while m1>0:
-	        if(m1<=m):
-	            out.append(m1)
-	            if(divide(m1,r-m1,out)):
+	    tm=r
+	    while tm>0:
+	        if(tm<=m):
+	            out.append(tm)
+	            if(divide(tm,r-tm,out_list)):
 	                print out
 	            out.pop()
-	        m1-=1
+	        tm = tm-1
 	    return False
 	
 	
