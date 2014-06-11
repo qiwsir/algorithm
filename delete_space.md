@@ -4,8 +4,8 @@
 
 #解决（Python）
 
-#! /usr/bin/env python
-#coding:utf-8
+    #! /usr/bin/env python
+    #coding:utf-8
 
     def del_space(string):
         split_string = string.split(" ")    #以空格为分割，生成list，list中如果含有空格，则该空格是连续空格中的后一个
