@@ -36,8 +36,11 @@ edges = [ ("A", "B", 7),
 	from heapq import *
 	
 	def prim( vertexs, edges ):
-	    adjacent_vertex = defaultdict(list)      #注意：defaultdict(list)必须以list做为变量，可以详细阅读：[collections.defaultdict](https://docs.python.org/2/library/collections.html#collections.defaultdict)
-	
+	    adjacent_vertex = defaultdict(list)      
+        
+        """
+        注意：defaultdict(list)必须以list做为变量，可以详细阅读：[collections.defaultdict](https://docs.python.org/2/library/collections.html#collections.defaultdict)
+	    """
 	    for v1,v2,length in edges:
             adjacent_vertex[v1].append((length, v1, v2))
             adjacent_vertex[v2].append((length, v2, v1))
@@ -45,7 +48,13 @@ edges = [ ("A", "B", 7),
         """
 	    经过上述操作，将edges列表中各项归类成以某点为dictionary的key，其value则是其相邻的点以及边长。如下：
 	
-	    defaultdict(<type 'list'>, {'A': [(7, 'A', 'B'), (5, 'A', 'D')], 'C': [(8, 'C', 'B'), (5, 'C', 'E')], 'B': [(7, 'B', 'A'), (8, 'B', 'C'), (9, 'B', 'D'), (7, 'B', 'E')], 'E': [(7, 'E', 'B'), (5, 'E', 'C'), (15, 'E', 'D'), (8, 'E', 'F'), (9, 'E', 'G')], 'D': [(5, 'D', 'A'), (9, 'D', 'B'), (15, 'D', 'E'), (6, 'D', 'F')], 'G': [(9, 'G', 'E'), (11, 'G', 'F')], 'F': [(6, 'F', 'D'), (8, 'F', 'E'), (11, 'F', 'G')]})
+	    defaultdict(<type 'list'>, {'A': [(7, 'A', 'B'), (5, 'A', 'D')], 
+                                    'C': [(8, 'C', 'B'), (5, 'C', 'E')], 
+                                    'B': [(7, 'B', 'A'), (8, 'B', 'C'), (9, 'B', 'D'), (7, 'B', 'E')], 
+                                    'E': [(7, 'E', 'B'), (5, 'E', 'C'), (15, 'E', 'D'), (8, 'E', 'F'), (9, 'E', 'G')], 
+                                    'D': [(5, 'D', 'A'), (9, 'D', 'B'), (15, 'D', 'E'), (6, 'D', 'F')], 
+                                    'G': [(9, 'G', 'E'), (11, 'G', 'F')], 
+                                    'F': [(6, 'F', 'D'), (8, 'F', 'E'), (11, 'F', 'G')]})
 	
 	    """
 	
@@ -103,6 +112,7 @@ edges = [ ("A", "B", 7),
 ##运行结果
 
 edges: [('A', 'B', 7), ('A', 'D', 5), ('B', 'C', 8), ('B', 'D', 9), ('B', 'E', 7), ('C', 'E', 5), ('D', 'E', 15), ('D', 'F', 6), ('E', 'F', 8), ('E', 'G', 9), ('F', 'G', 11)]
+
 prim: [('A', 'D', 5), ('D', 'F', 6), ('A', 'B', 7), ('B', 'E', 7), ('E', 'C', 5), ('E', 'G', 9)]
 
 
