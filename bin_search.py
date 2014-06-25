@@ -74,13 +74,14 @@ def bsearch(l, value):
 
 - 本模块同样适用于长列表项。因为它就是用二分查找方法实现的，有兴趣可以看其源码（源码是一个很好的二分查找算法的例子，特别是很好地解决了边界条件极端的问题.)
 
+-关于本模块，可以查看官方文档：https://docs.python.org/2/library/bisect.html
 """
 #下面演示这个模块
 
 from bisect import *
 
 def bisectSearch(lst, x):        
-    i = bisect_left(lst, x)
+    i = bisect_left(lst, x)         #bisect_left(lst,x)得到x在已经排序的lst中的位置
     if i != len(lst) and lst[i] == x:
         return i
 
