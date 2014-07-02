@@ -31,7 +31,7 @@
 
 以下面图示的二叉树为例说明查找算法
 
-![](./pic/binarytree1.png)
+![](./pics/binarytree1.png)
 
 **Node 类**
 
