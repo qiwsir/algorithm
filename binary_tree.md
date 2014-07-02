@@ -113,7 +113,7 @@
 
 最终形成下图的树
 
-![](./pic/binarytree4.png)
+![](./pics/binarytree4.png)
 
 **遍历树**
 
@@ -219,13 +219,13 @@
 
     root.delete(14)
 
-![](.pics/binarytree6.png)
+![](./pics/binarytree6.png)
 
 例3：来个复杂的，删除节点数据为3的节点，它下面有两个节点，而节点6下面又有两个4,7。需要一个临时变量successor，将节点3下面的子节点进行查询，并把小于3下面的第一级子节点6左测节点数据4（该数据一定小于其父节点6）替换当前节点3，维持二叉树结构。如下图：
     
     root.delete(3)
 
-![](.pics/binarytree7.png)
+![](./pics/binarytree7.png)
 
 **比较两个二叉树**
 
