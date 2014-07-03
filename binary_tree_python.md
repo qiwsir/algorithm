@@ -54,11 +54,12 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     Warning: FastRBTree not available, using Python version RBTree.
 
 正确的引入方式是：
-    
+     
     >>> from bintrees import BinaryTree     #只引入了BinartTree
     >>> from bintrees import *              #三个模块都引入了
     
 - 实例化
+
     
     >>> btree = BinaryTree()
     >>> btree
