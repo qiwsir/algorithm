@@ -44,9 +44,9 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 - 引用
 
 如果按照一般模块的思路，输入下面的命令引入上述模块
-
+    
     >>> import bintrees
-
+    
 错了，这是错的，出现如下警告：(×××不可用，用×××）
     
     Warning: FastBinaryTree not available, using Python version BinaryTree.
@@ -54,36 +54,36 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     Warning: FastRBTree not available, using Python version RBTree.
 
 正确的引入方式是：
-
+    
     >>> from bintrees import BinaryTree     #只引入了BinartTree
     >>> from bintrees import *              #三个模块都引入了
-
+    
 - 实例化
-
+    
     >>> btree = BinaryTree()
     >>> btree
     BinaryTree({})
     >>> type(btree)
     <class 'bintrees.bintree.BinaryTree'>
-
+    
 - 逐个增加键值对：.__setitem__(k,v) .复杂度O(log(n))(后续说明中，都会有复杂度标示，为了简单，直接标明：O(log(n)).)
-
+    
     >>> btree.__setitem__("Tom","headmaster")
     >>> btree
     BinaryTree({'Tom': 'headmaster'})
     >>> btree.__setitem__("blog","http://blog.csdn.net/qiwsir")
     >>> btree
     BinaryTree({'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
-
+    
 - 批量添加：.update(E)  E是dict/iterable，将E批量更新入btree. O(E*log(n))
-
+    
     >>> adict = [(2,"phone"),(5,"tea"),(9,"scree"),(7,"computer")]
     >>> btree.update(adict)
     >>> btree
     BinaryTree({2: 'phone', 5: 'tea', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
-
+    
 - 查找某个key是否存在：.__contains__(k)  如果含有键k，则返回True,否则返回False. O(log(n))
-
+    
     >>> btree
     BinaryTree({2: 'phone', 5: 'tea', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
     >>> btree.__contains__(5)
@@ -94,9 +94,9 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     False
     >>> btree.__contains__(1)
     False
-
+    
 - 根据key删除某个key-value：.__delitem__(key), O(log(n))
-
+    
     >>> btree
     BinaryTree({2: 'phone', 5: 'tea', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
     >>> btree.__delitem__(5)        #删除key=5的key-value,即：5:'tea' 被删除.
