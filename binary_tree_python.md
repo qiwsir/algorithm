@@ -69,7 +69,9 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     <class 'bintrees.bintree.BinaryTree'>
     
 - 逐个增加键值对：.__setitem__(k,v) .复杂度O(log(n))(后续说明中，都会有复杂度标示，为了简单，直接标明：O(log(n)).)
-    
+
+看例子：
+
     >>> btree.__setitem__("Tom","headmaster")
     >>> btree
     BinaryTree({'Tom': 'headmaster'})
@@ -79,6 +81,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     
 - 批量添加：.update(E)  E是dict/iterable，将E批量更新入btree. O(E*log(n))
     
+看例子：
+
     >>> adict = [(2,"phone"),(5,"tea"),(9,"scree"),(7,"computer")]
     >>> btree.update(adict)
     >>> btree
@@ -86,6 +90,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     
 - 查找某个key是否存在：.__contains__(k)  如果含有键k，则返回True,否则返回False. O(log(n))
     
+看例子：
+
     >>> btree
     BinaryTree({2: 'phone', 5: 'tea', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
     >>> btree.__contains__(5)
@@ -99,6 +105,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     
 - 根据key删除某个key-value：.__delitem__(key), O(log(n))
     
+看例子：
+
     >>> btree
     BinaryTree({2: 'phone', 5: 'tea', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
     >>> btree.__delitem__(5)        #删除key=5的key-value,即：5:'tea' 被删除.
@@ -106,6 +114,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
 
 - 根据key值得到该kye的value：.__getitem__(key)
+
+看例子：
 
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
@@ -119,6 +129,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     AttributeError: 'BinaryTree' object has no attribute '_getitem__'
 
 - 迭代器：.__iter__()
+
+看例子：
 
 	>>> btree        
 	BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
@@ -138,6 +150,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 
 - 数的数据长度：.__len__(),返回btree的长度。O(1)
 
+看例子：
+
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'Tom': 'headmaster', 'blog': 'http://blog.csdn.net/qiwsir'})
     >>> btree.__len__()
@@ -147,6 +161,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 
 - 找出key最小的键值对：.__min__()
 
+看例子：
+
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree'})
     >>> btree.__max__()
@@ -155,6 +171,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     (2, 'phone')
 
 - 两棵树的关系运算
+
+看例子：
 
     >>> other = [(3,'http://blog.csdn.net/qiwsir'),(7,'qiwsir')]
     >>> bother = BinaryTree()       #再建一个树
@@ -179,12 +197,16 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 
 - 输出字符串模样，注意仅仅是输出的模样罢了：.__repr__()
 
+看例子：
+
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree'})
     >>> btree.__repr__()
     "BinaryTree({2: 'phone', 7: 'computer', 9: 'scree'})"
 
 - 清空树中的所有数据:.clear(),O(log(n))
+
+看例子：
 
     >>> bother   
     BinaryTree({3: 'http://blog.csdn.net/qiwsir', 7: 'qiwsir'})
@@ -195,6 +217,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     False
 
 - 浅拷贝：.copy(),官方文档上说是浅拷贝，但是我做了操作实现，是下面所示，还不是很理解其“浅”的含义。O(n*log(n))
+
+看例子：
 
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree'})
@@ -216,6 +240,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     
 - 移除树中的一个数据：.discard(key)，这个功能与.__delitem__(key)类似.两者都不反悔值。O(log(n))
 
+看例子：
+
     >>> ctree
     BinaryTree({2: 'phone', 9: 'scree'})
     >>> ctree.discard(2)    #删除后，不返回值，或者返回None
@@ -234,6 +260,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 
 - 根据key查找，并返回或返回备用值：.get(key[,d])。如果key在树中存在，则返回value,否则如果有d，则返回d值。O(log(n))
 
+看例子：
+
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'github': 'qiwsir'})
     >>> btree.get(2,"algorithm")
@@ -244,6 +272,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     >>> 
 
 - 判断树是否为空：is_empty().根据树数据的长度，如果数据长度为0,则为空。O(1)
+
+看例子：
 
     >>> ctree
     BinaryTree({9: 'scree'})
@@ -263,6 +293,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 >>.keys([reverse])--key
 >>.values([reverse])--value. O(n)
 >>.iter_items(s,e[,reverse]--s,e是key的范围，也就是生成在某个范围内的key的迭代器 O(n)
+
+看例子：
 
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'github': 'qiwsir'})
@@ -310,6 +342,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 >>.pop(key[,d]), 根据key删除树的数据，并返回该value，但是如果没有，并也指定了备选返回的d，则返回d，如果没有d，则报错；
 >>.pop_item(),在树中随机选择(key,value)删除，并返回。
 
+看例子：
+
     >>> ctree = btree.copy()
     >>> ctree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'github': 'qiwsir'})
@@ -334,6 +368,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
     'sing'
 
 - 查找数据,并返回value：.set_default(key[,d])，在树的数据中查找key,如果存在，则返回该value。如果不存在，当指定了d,则将该（key,d）添加到树内；当不指定d的时候，添加(key,None). O(log(n))
+
+看例子：
 
     >>> btree
     BinaryTree({2: 'phone', 7: 'computer', 9: 'scree', 'github': 'qiwsir'})
@@ -360,6 +396,8 @@ bintrees提供了丰富的API,涵盖了通常的多种应用。下面逐条说�
 
 >>.remove(key),删除(key,value)
 >>.remove_items(keys),keys是一个key组成的list,逐个删除树中的对应数据
+
+看例子：
 
     >>> ctree
     BinaryTree({2: 'phone', 5: None, 7: 'computer', 8: 'eight', 9: 'scree', 'github': 'qiwsir'})
