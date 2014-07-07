@@ -54,3 +54,20 @@ fib1的慢，就是因为每次都要计算前面已经算过的项目.这里将
 
 在[维基百科的词条](http://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97) 里面，已经列出了不同形式的Fibonacci数列的数学结果，可以直接将这些结果拿过来，通过程序计算，得到斐波那契数。此类程序，本文略。
 
+#[这种方法来自网络](http://www.cprogramto.com/fibonacci-sequence-python-code/)
+
+    print('!* Fibonacci Sequence python \n')
+    def Fibonacci_Series():
+        x = input('Enter Series length to print fibonacci sequence')
+
+        d,e=0,1
+        a = []
+        a.append(d)
+        a.append(e)
+        while(x!=2):
+            c = d + e
+            d = e
+            e = c
+            a.append(c)
+            x = x -1
+        print(a)

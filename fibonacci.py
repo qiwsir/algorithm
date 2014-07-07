@@ -42,6 +42,33 @@ def fib3(n):
 #除了上述方法之外，还可以直接用数学运算的结果
 #推荐参考：http://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97中的结论
 
+#这种方法来自：http://www.cprogramto.com/fibonacci-sequence-python-code/
+
+print('!* Fibonacci Sequence python \n')
+def Fibonacci_Series():
+    x = input('Enter Series length to print fibonacci sequence')
+
+    d,e=0,1
+    a = []
+    a.append(d)
+    a.append(e)
+    while(x!=2):
+        c = d + e
+        d = e
+        e = c
+        a.append(c)
+        x = x -1
+    print(a)
+
+#Output:
+"""
+!* Fibonacci Sequence python 
+
+>>> Fibonacci_Series()
+Enter Series length to print fibonacci sequence10
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+>>>
+"""
 if __name__=="__main__":
     
-        print fib21(8) 
+    Fibonacci_Series() 
