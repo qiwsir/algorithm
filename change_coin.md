@@ -54,4 +54,19 @@
 	#    Fen    2    1
 	#    Jiao    2    2
 	#    Yuan    1    3
-	
+
+#解决2(Python)
+
+以下方法，以动态方式，提供最小的硬币数量。避免了贪婪方法的问题。
+
+def coinChange(centsNeeded, coinValues):
+    minCoins = [[0 for j in range(centsNeeded + 1)] for i in range(len(coinValues))]
+    minCoins[0] = range(centsNeeded + 1)
+    
+    for i in range(1,len(coinValues)):
+        for j in range(0, centsNeeded + 1):
+            if j < coinValues[i]:
+                minCoins[i][j] = minCoins[i-1][j]
+            else:
+                minCoins[i][j] = min(minCoins[i-1][j], 1 + minCoins[i][j-coinValues[i]])
+    return minCoins[-1][-1]

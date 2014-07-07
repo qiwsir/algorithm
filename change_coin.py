@@ -30,8 +30,22 @@ def change_coin(money):
             money = num_remain
     return change 
 
+#以下方法，以动态方式，提供最小的硬币数量。避免了贪婪方法的问题。
+def coinChange(centsNeeded, coinValues):
+    minCoins = [[0 for j in range(centsNeeded + 1)] for i in range(len(coinValues))]
+    minCoins[0] = range(centsNeeded + 1)
+    
+    for i in range(1,len(coinValues)):
+        for j in range(0, centsNeeded + 1):
+            if j < coinValues[i]:
+                minCoins[i][j] = minCoins[i-1][j]
+            else:
+                minCoins[i][j] = min(minCoins[i-1][j], 1 + minCoins[i][j-coinValues[i]])
+    return minCoins[-1][-1]
+
 if __name__=="__main__":
     money = 3.42
+    coin = [1,2,5,10,20,50,100]     #1分，2分，5分，1角，2角，5角，1元
     num_coin = change_coin(money)
     result = [(key,num_coin[key]) for key in sorted(num_coin.keys())]
     print "You have %s RMB"%money
@@ -44,7 +58,8 @@ if __name__=="__main__":
             print "Fen    %d    %d"%(i[0],i[1])
         else:
             print "Jiao    %d    %d"%(i[0]/10,i[1])
-
+    num2 = coinChange(5,coin)
+    print num2
 #执行结果
 #You have 3.42 RMB
 #I had to change you:
