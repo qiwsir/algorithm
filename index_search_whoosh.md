@@ -141,3 +141,10 @@ title/path/content就是所谓的字段。每个字段对应索引查找目标�
     {"title":u"my second document","path":u"/a"}
 
 前面已经将上述两个字段设置为stored=True.
+
+##中文分词
+
+中文分词中，结巴分词是不错的。以下两个内容解决中文分析问题：
+
+- [结巴分词](https://github.com/qiwsir/jieba)
+- [whoosh and 结巴分词](https://github.com/qiwsir/algorithm/blob/master/chinesetokenizer.py)
