@@ -95,4 +95,49 @@ title/path/content就是所谓的字段。每个字段对应索引查找目标�
 
 ##写索引文件
 
-(待续）
+下面开始写入索引内容，过程如下：
+
+    writer = ix.writer()
+    writer.add_document(title=u"my document", content=u"this is my document", path=u"/a", tags=u"firlst short", icon=u"/icons/star.png")
+    writer.add_document(title=u"my second document", content=u"this is my second document", path=u"/b", tags=u"second short", icon=u"/icons/sheep.png")
+    writer.commit()
+
+特别注意：
+
+- 字段的值必须是unicode类型
+- 不是每个字段都必须赋值
+
+更多的内容，请参考：[如何索引文件官方文档](https://pythonhosted.org/Whoosh/indexing.html)
+
+##搜索
+
+开始搜索，需要新建立一个对象，如：
+
+    searcher = ix.searcher()
+
+一般来讲，不是这么简单地，建立对象相当于开始搜索，完事之后要关闭，所以在实战中，常常写成：
+
+    withe ix.searcher() as searcher:
+        (do somthing)
+
+或者写成（与上面的等效):
+
+    try:
+        searcher = ix.searcher()
+        (do somthing)
+    finally:
+        searcher.close()
+
+接下来就开始搜索了，以搜索content为例：
+
+    from whoosh.qparser import QueryParser
+    with ix.searcher() as searcher:
+        query = QueryParser("content",ix.schema).parse("second")
+        result = searcher.search(query)
+        results[0]
+
+返回显示：
+
+    {"title":u"my second document","path":u"/a"}
+
+前面已经将上述两个字段设置为stored=True.
