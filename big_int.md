@@ -138,6 +138,6 @@ Python支持**“无限精度”的整数，**一般情况下不用考虑整数�
 
 #联系方法
 - qiwsir#gmail.com
-- http://blog.csdn.net/qiwsir
+- https://qiwsir.github.io
 - http://weibo.com/qiwsir
 
