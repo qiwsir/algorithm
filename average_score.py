@@ -8,7 +8,7 @@
 (2)将这40个成绩按照从高到低的顺序输出出来。
 """
 
-from __future__ import division     #实现精确的除法，例如4/3=1.333333
+#no need to import division from future just change num to float(num) 
 import random
 
 def make_score(num):
@@ -18,7 +18,7 @@ def make_score(num):
 def less_average(score):
     num = len(score)
     sum_score = sum(score)
-    ave_num = sum_score/num
+    ave_num = sum_score/float(num)
     less_ave = [i for i in score if i<ave_num]
     return (ave_num,len(less_ave))
 
@@ -27,4 +27,4 @@ if __name__=="__main__":
     average_num,less_num = less_average(score)
     print 'the score of average is:',average_num
     print "the number of less average is:",less_num
-    print "the every socre is[from big to small]:",sorted(score,reverse=True)
+    print "the every score is[from big to small]:",sorted(score,reverse=True)
