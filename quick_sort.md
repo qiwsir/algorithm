@@ -65,10 +65,10 @@ R[low..pivotpos-1].keys≤R[pivotpos].key≤R[pivotpos+1..high].keys
 	        return less + pivotList + more
 	
 	#方法2
-	#将方法1写的更紧凑，彰显python特点
-	
+	# 分为<, >, = 三种情况，如果分为两种情况的话函数调用次数会增加许多，以后几个好像都有相似的问题
+	# 如果测试1000个100以内的整数，如果分为<, >=两种情况共调用函数1801次，分为<, >, = 三种情况，共调用函数201次
 	def qsort(L):
-	    return (qsort([y for y in L[1:] if y <  L[0]]) + L[:1] + qsort([y for y in L[1:] if y >= L[0]])) if len(L) > 1 else L
+	    return (qsort([y for y in L[1:] if y <  L[0]]) + L[:1] + [y for y in L[1:] if y == L[0] + qsort([y for y in L[1:] if y > L[0]])) if len(L) > 1 else L
 	
 	#方法3
 	#基本思想同上，只是写法上又有所变化
