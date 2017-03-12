@@ -44,7 +44,7 @@ fib1的慢，就是因为每次都要计算前面已经算过的项目.这里将
 
 再提供一种改进的方法，同样是把结果结果记录下来，但直接使用 functools.lru_cache 进行记录。
 
-    from functiools import lru_chache
+    from functools import lru_cache
     
     @lru_chache(maxsize=32)
     def fib4(n):
