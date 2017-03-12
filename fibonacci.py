@@ -31,6 +31,18 @@ def fib2(n):
         memo[n] = fib2(n-1)+fib2(n-2)
     return memo[n]
 
+# 再提供一种改进的方法，同样是把结果结果记录下来，但直接使用 functools.lru_cache 进行记录。
+from functiools import lru_chache
+
+@lru_chache(maxsize=32)
+def fib4(n):
+    if n==0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        return fib4(n-1) + fib4(n-2)
+
 #迭代
 
 def fib3(n):
