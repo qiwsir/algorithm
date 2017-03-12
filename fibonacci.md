@@ -53,7 +53,7 @@ fib1的慢，就是因为每次都要计算前面已经算过的项目.这里将
         elif n==1:
             return 1
         else:
-            return fib2(n-1) + fib2(n-2)
+            return fib4(n-1) + fib4(n-2)
 
 ##迭代
 
