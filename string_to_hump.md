@@ -12,20 +12,20 @@
         string_list = str(one_string).split(space_character)    #将字符串转化为list
         first = string_list[0].lower()
         others = string_list[1:] 
-
+    
         others_capital = [word.capitalize() for word in others]      #str.capitalize():将字符串的首字母转化为大写
-
+    
         others_capital[0:0] = [first]
-
+    
         hump_string = ''.join(others_capital)     #将list组合成为字符串，中间无连接符。
-
+    
         return hump_string
-
+    
     if __name__=='__main__':
         print "the string is:ab-cd-ef"
         print "convert to hump:"
         print convert("ab-cd-ef","-")
-        
+
 
 ##欢迎补充其它语言的解决方法
 
@@ -64,5 +64,27 @@ str = 'border-bottom-color'
 str.split('-').map{|x| x.capitalize}.join
 # => "BorderBottomColor"
 ```
+
+### JavaScript解决方法
+
+```javascript
+functuon convert(str) {
+  var final_str = [];
+  str.split('-').map((item, index) => {
+    if (index !== 0) {
+      item = item.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase()); // 通过正则把第一个字母转大写
+    }
+    final_str.push(item);
+  });
+  return final_str.join('')
+}
+```
+
+```javascript
+var str = 'border-bottom-color';
+convert(str) // borderBottomColor
+```
+
+
 
 ###联系我：老齐 qiwsir#gmail.com (# to @)
