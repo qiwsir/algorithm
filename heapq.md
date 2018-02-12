@@ -1,4 +1,4 @@
-#python中的堆排序peapq模块
+#python中的堆排序heapq模块
 
 heapq模块实现了python中的堆排序，并提供了有关方法。让用Python实现排序算法有了简单快捷的方式。
 
