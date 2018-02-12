@@ -1,4 +1,4 @@
-#python中的堆排序peapq模块
+# python中的堆排序heapq模块
 
 heapq模块实现了python中的堆排序，并提供了有关方法。让用Python实现排序算法有了简单快捷的方式。
 
@@ -6,7 +6,7 @@ heapq的官方文档和源码：[8.4.heapq-Heap queue algorithm](https://docs.py
 
 下面通过举例的方式说明heapq的应用方法
 
-##实现堆排序
+## 实现堆排序
 
     #! /usr/bin/evn python
     #coding:utf-8
@@ -22,11 +22,11 @@ heapq的官方文档和源码：[8.4.heapq-Heap queue algorithm](https://docs.py
     if __name__=="__main__":
         print heapsort([1,3,5,9,2])
 
-###heappush()
+### heappush()
 
 heapq.heappush(heap, item):将item压入到堆数组heap中。如果不进行此步操作，后面的heappop()失效
 
-###heappop()
+### heappop()
 
 heapq.heappop(heap):从堆数组heap中取出最小的值，并返回。
 
@@ -55,7 +55,7 @@ heapq.heappop(heap):从堆数组heap中取出最小的值，并返回。
     >>> heappop(h)                  #操作对象已经包含了1
     1
 
-###heapq.heappushpop(heap, item)
+### heapq.heappushpop(heap, item)
 
 是上述heappush和heappop的合体，同时完成两者的功能.注意：相当于先操作了heappush(heap,item),然后操作heappop(heap)
 
@@ -68,7 +68,7 @@ heapq.heappop(heap):从堆数组heap中取出最小的值，并返回。
     >>> h
     [4, 5, 9]
 
-###heapq.heapify(x)
+### heapq.heapify(x)
 
 x必须是list，此函数将list变成堆，实时操作。从而能够在任何情况下使用堆的函数。
 
@@ -83,7 +83,7 @@ x必须是list，此函数将list变成堆，实时操作。从而能够在任�
     >>> heappop(b)
     2
 
-###heapq.heapreplace(heap, item)
+### heapq.heapreplace(heap, item)
 
 是heappop(heap)和heappush(heap,item)的联合操作。注意，与heappushpop(heap,item)的区别在于，顺序不同，这里是先进行删除，后压入堆
 
@@ -113,7 +113,7 @@ x必须是list，此函数将list变成堆，实时操作。从而能够在任�
     >>> a
     [1, 5, 9, 6]
 
-###heapq.merge(\*iterables)
+### heapq.merge(\*iterables)
 
 举例：
 
@@ -125,7 +125,7 @@ x必须是list，此函数将list变成堆，实时操作。从而能够在任�
 
 在[归并排序](https://github.com/qiwsir/algorithm/blob/master/merge_sort.md)中详细演示了本函数的使用方法。
 
-###heapq.nlargest(n, iterable[, key]),heapq.nsmallest(n, iterable[, key])
+### heapq.nlargest(n, iterable[, key]),heapq.nsmallest(n, iterable[, key])
 
 获取列表中最大、最小的几个值。
 
