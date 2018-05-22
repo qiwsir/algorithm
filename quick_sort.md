@@ -1,10 +1,10 @@
-#问题
+# 问题
 
 快速排序，这是一个经典的算法，本文给出几种python的写法，供参考。
 
 特别是python能用一句话实现快速排序。
 
-#思路说明
+# 思路说明
 
 快速排序是C.R.A.Hoare于1962年提出的一种划分交换排序。它采用了一种分治的策略，通常称其为分治法(Divide-and-ConquerMethod)。
 
@@ -16,7 +16,7 @@
 
 设当前待排序的无序区为R[low..high]，利用分治法可将快速排序的基本思想描述为：
 
-###分解：
+### 分解：
 
 在R[low..high]中任选一个记录作为基准(Pivot)，以此基准将当前无序区划分为左、右两个较小的子区间R[low..pivotpos-1)和R[pivotpos+1..high]，并使左边子区间中所有记录的关键字均小于等于基准记录(不妨记为pivot)的关键字pivot.key，右边的子区间中所有记录的关键字均大于等于pivot.key，而基准记录pivot则位于正确的位置(pivotpos)上，它无须参加后续的排序。
 
@@ -28,16 +28,17 @@ R[low..pivotpos-1].keys≤R[pivotpos].key≤R[pivotpos+1..high].keys
 
 其中low≤pivotpos≤high。
 
-###求解：
+### 求解：
 
 通过递归调用快速排序对左、右子区间R[low..pivotpos-1]和R[pivotpos+1..high]快速排序。
 
-###组合：
+### 组合：
 
 因为当"求解"步骤中的两个递归调用结束时，其左、右两个子区间已有序。对快速排序而言，"组合"步骤无须做什么，可看作是空操作。
 
-#解决(Python)
+### 解决(Python)
 	
+```python
 	#!/usr/bin/env python
 	#coding:utf-8
 	
@@ -64,7 +65,7 @@ R[low..pivotpos-1].keys≤R[pivotpos].key≤R[pivotpos+1..high].keys
 	
 	        return less + pivotList + more
 	
-	#方法2
+	# 方法2
 	# 分为<, >, = 三种情况，如果分为两种情况的话函数调用次数会增加许多，以后几个好像都有相似的问题
 	# 如果测试1000个100以内的整数，如果分为<, >=两种情况共调用函数1801次，分为<, >, = 三种情况，共调用函数201次
 	def qsort(L):
@@ -106,3 +107,4 @@ R[low..pivotpos-1].keys≤R[pivotpos].key≤R[pivotpos+1..high].keys
 	    print qSort(a)
 	
 	    print qs(a)
+```
