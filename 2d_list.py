@@ -13,7 +13,7 @@ from __future__ import division
 import random
 
 
-def score(score_list,course_list,student_num):
+def score(score_list,course_list,studet_num):
     course_num = len(course_list)
     
     every_score = [[score_list[j][i] for j in range(course_num)] for i in range(student_num)]
