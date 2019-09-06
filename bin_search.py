@@ -44,18 +44,29 @@ def binarySearch(lst, value,low,high):          #low,high是lst的查找范围
         return mid
 
 #也可以不用递归方法，而采用循环，如下：
- 
-def bsearch(l, value):
-    lo, hi = 0, len(l)-1
-    while lo <= hi:
-        mid = (lo + hi) / 2
-        if l[mid] < value:
+
+
+def bisect_left(a, x):
+    lo = 0
+    hi = len(a)
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if a[mid] < x:
             lo = mid + 1
-        elif value < l[mid]:
-            hi = mid - 1
         else:
-            return mid
-    return -1
+            hi = mid
+    return lo
+    
+
+def bisect_right(a, x):
+    lo=0
+    hi = len(a)
+    while lo < hi:
+        mid = (lo+hi)//2
+        if x < a[mid]: hi = mid
+        else: lo = mid+1
+    return lo
+
  
 """
 对于python，不能忽视其强大的标准库。经查阅，发现标准库中就有一个模块，名为：bisect。其文档中有这样一句话：
