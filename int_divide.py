@@ -22,7 +22,7 @@ def divide(m,r,out):
         m1-=1
     return False
 
-
+                
 n=6
 out=[]
 divide(n-1,n,out)
