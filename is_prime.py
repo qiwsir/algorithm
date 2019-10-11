@@ -42,7 +42,7 @@ def isPrime3(n):
         if i * i > n:
             return True
         if n % i == 0:
-            return Fals
+            return False
 
 #方法四
 
